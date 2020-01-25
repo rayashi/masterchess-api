@@ -7,16 +7,25 @@ class NextMovesController {
       return res.send({error: `Sorry, ${cell} is not a valid board position in Chess`});
     }
 
-    const moves = this.getPossibleMoves(cell);
-    return res.json(moves);
+    const firstTurnMoves = this.getPossibleMovesByCell(cell);
+    const secondTurnMoves = this.getPossibleMovesByCells(firstTurnMoves);
+    return res.json(secondTurnMoves);
   }
 
-  getPossibleMoves(cell){
+  getPossibleMovesByCells(cells){
+    let moves = [];
+    cells.map(cell => {
+      moves = [...moves, ...this.getPossibleMovesByCell(cell)];
+    });
+    return [...new Set(moves)];
+  }
+
+  getPossibleMovesByCell(cell){
     if(!this.validateCell(cell)){
       return [];
     }
   
-    const moves = [];
+    let moves = [];
     const column = cell[0];
     const row = parseInt(cell[1]);
   
