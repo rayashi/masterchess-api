@@ -1,6 +1,8 @@
-class NextMovesController {
+const BoardProcessor = require("../BoardProcessor/BoardProcessor");
 
-  async getNextMoves(req, res) {
+class KnightMoves extends BoardProcessor{
+
+  async getMoves(req, res) {
     const cell = req.body.cell;
     if(!this.validateCell(cell)){
       res.status(400);
@@ -8,16 +10,8 @@ class NextMovesController {
     }
 
     const firstTurnMoves = this.getPossibleMovesByCell(cell);
-    const secondTurnMoves = this.getPossibleMovesByCells(firstTurnMoves);
+    const secondTurnMoves = this.getPossibleMovesByCells(firstTurnMoves, this.getPossibleMovesByCell.bind(this));
     return res.json(secondTurnMoves);
-  }
-
-  getPossibleMovesByCells(cells){
-    let moves = [];
-    cells.map(cell => {
-      moves = [...moves, ...this.getPossibleMovesByCell(cell)];
-    });
-    return [...new Set(moves)];
   }
 
   getPossibleMovesByCell(cell){
@@ -50,18 +44,6 @@ class NextMovesController {
     return moves;
   }
 
-  sumLetter(letter, moves){
-    return String.fromCharCode(letter.charCodeAt(0) + moves);
-  }
-
-  subtractLetter(letter, moves){
-    return String.fromCharCode(letter.charCodeAt(0) - moves);
-  }
-
-  validateCell(cell){ 
-    return /^[A-H][1-8]$/.test(cell);
-  }
-
 }
 
-module.exports = new NextMovesController();
+module.exports = new KnightMoves();

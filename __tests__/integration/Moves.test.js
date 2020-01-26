@@ -1,11 +1,11 @@
 const request = require("supertest");
 const app = require("../../src/app");
 
-describe("Knight Moves", () => {
+describe("Knight Moves API Integration tests", () => {
 
   it("shoudl return error for invalid cells", async () => { 
     const response = await request(app)
-      .post("/next-moves")
+      .post("/knight-moves")
       .send({
         cell: "C10"
       });
@@ -14,7 +14,7 @@ describe("Knight Moves", () => {
 
   it("should get all the possibilites moves of the second turn", async () => {   
     const response = await request(app)
-      .post("/next-moves")
+      .post("/knight-moves")
       .send({
         cell: "C4"
       });

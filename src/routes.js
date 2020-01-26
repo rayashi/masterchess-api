@@ -1,7 +1,7 @@
 const routes = require("express").Router();
 
-const NextMovesController = require("./controllers/NextMovesController");
+const KnightMoves = require("./controllers/KnightMoves");
 
-routes.post("/next-moves", (...args) => NextMovesController.getNextMoves(...args) );
+routes.post("/knight-moves", (...args) => KnightMoves.getMoves(...args) );
 
 module.exports = routes;
