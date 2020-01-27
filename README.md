@@ -10,6 +10,7 @@ You can find the frontend web application [here](https://github.com/rayashi/mast
 After cloning the project just go to the project folder and run:
 
 ```yarn``` or ```npm install```
+
 ```yarn dev``` or ```npm run dev```
 
 ## Running automated tests
