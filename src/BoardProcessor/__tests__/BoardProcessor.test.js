@@ -1,4 +1,4 @@
-const BoardProcessor = require("../BoardProcessor/BoardProcessor");
+const BoardProcessor = require("../BoardProcessor");
 const boardProcessor = new BoardProcessor();
 
 describe("Board Processor Unit tests", () => {
