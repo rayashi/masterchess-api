@@ -1,7 +1,7 @@
 
 # Masterchess API
 
-Masterchess API works as an engine to preview moves in the Chess game. The first version just get all cells where the Knight can move in exactly 2 turns. The API was built using [node](https://nodejs.org).
+Masterchess API works as an engine to preview moves in the Chess game. The first version just gets all cells where the Knight can move in exactly 2 turns. The API was built using [node](https://nodejs.org).
 
 You can find the frontend web application [here](https://github.com/rayashi/masterchess).
 
@@ -25,7 +25,7 @@ After cloning the project just go to the project folder and run:
 * `/src/KnightProcessor` - Is a class that inherit BoardProcessor, and it knows all about the Knight moves and rules
 * `/controllers` - Each controller is responsible for handle network requests
 * `./app.js` - Instantiate the [express](https://expressjs.com/) application with its middlewares
-* `./routes.js` - Create the routes and instatiate its handlers
+* `./routes.js` - Create the routes and instantiate its handlers
 * `./server.js` - Start the server
 
 
