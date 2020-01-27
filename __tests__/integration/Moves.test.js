@@ -3,7 +3,7 @@ const app = require("../../src/app");
 
 describe("Knight Moves API Integration tests", () => {
 
-  it("shoudl return error for invalid cells", async () => { 
+  it("should return error for invalid cells", async () => { 
     const response = await request(app)
       .post("/knight-moves")
       .send({

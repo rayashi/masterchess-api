@@ -1,22 +1,19 @@
 const BoardProcessor = require("../BoardProcessor/BoardProcessor");
 
-class KnightMoves extends BoardProcessor{
+class KnightProcessor extends BoardProcessor {
 
-  async getMoves(req, res) {
-    const cell = req.body.cell;
+  getSecondTurnMoves(cell) {
     if(!this.validateCell(cell)){
-      res.status(400);
-      return res.send({error: `Sorry, ${cell} is not a valid board position in Chess`});
+      throw `Sorry, ${cell} is not a valid board position in Chess`
     }
-
     const firstTurnMoves = this.getPossibleMovesByCell(cell);
     const secondTurnMoves = this.getPossibleMovesByCells(firstTurnMoves, this.getPossibleMovesByCell.bind(this));
-    return res.json(secondTurnMoves);
+    return secondTurnMoves;
   }
 
   getPossibleMovesByCell(cell){
     if(!this.validateCell(cell)){
-      return [];
+      throw `Sorry, ${cell} is not a valid board position in Chess`
     }
   
     let moves = [];
@@ -46,4 +43,4 @@ class KnightMoves extends BoardProcessor{
 
 }
 
-module.exports = new KnightMoves();
+module.exports = new KnightProcessor();
