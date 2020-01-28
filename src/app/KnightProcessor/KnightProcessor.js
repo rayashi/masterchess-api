@@ -7,8 +7,8 @@ class KnightProcessor extends BoardProcessor {
       throw `Sorry, ${cell} is not a valid board position in Chess`
     }
     const firstTurnMoves = this.getPossibleMovesByCell(cell);
-    const secondTurnMoves = this.getPossibleMovesByCells(firstTurnMoves, this.getPossibleMovesByCell.bind(this));
-    return secondTurnMoves;
+    this.secondTurnMoves = this.getPossibleMovesByCells(firstTurnMoves, this.getPossibleMovesByCell.bind(this));
+    return this.secondTurnMoves;
   }
 
   getPossibleMovesByCell(cell){
@@ -43,4 +43,4 @@ class KnightProcessor extends BoardProcessor {
 
 }
 
-module.exports = new KnightProcessor();
+module.exports = KnightProcessor;

@@ -1,4 +1,11 @@
+const { History } = require("../models");
+
 class BoardProcessor {
+  
+  constructor(cell){
+    this.cell = cell;
+    this.secondTurnMoves = null;
+  }
 
   sumLetter(letter, moves){
     return String.fromCharCode(letter.charCodeAt(0) + moves);
@@ -18,6 +25,17 @@ class BoardProcessor {
       moves = [...moves, ...getPossibleMovesByCell(cell)];
     });
     return [...new Set(moves)];
+  }
+
+  saveHistory(){
+    if(!this.secondTurnMoves){
+      throw "secondTurnMoves is null";
+    }
+    
+    History.create({
+      cell: this.cell,
+      moves: this.secondTurnMoves.toString(),
+    });
   }
 
 }
