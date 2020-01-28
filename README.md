@@ -5,6 +5,50 @@ Masterchess API works as an engine to preview moves in the Chess game. The first
 
 You can find the frontend web application [here](https://github.com/rayashi/masterchess).
 
+The API is up and running here: https://masterchess-api.herokuapp.com
+
+## Endpoints
+
+* POST `/knight-moves` -  Gets all cells where the Knight can move in exactly 2 turns. It expects a valid `cell` position (Algebraic notation like D4, A5, H8, A1, ...) in the request body:
+
+Example request:
+
+```json
+{
+  "cell": "C4"
+}
+```
+
+Response:
+
+```json
+[
+  "E8",
+  "C8",
+  "F7",
+  "F5",
+  "E4",
+  "C4",
+  "B7",
+  "B5",
+  "A8",
+  "D7",
+  "D5",
+  "A4",
+  "G6",
+  "G4",
+  "F3",
+  "D3",
+  "C6",
+  "G2",
+  "F1",
+  "D1",
+  "C2",
+  "B3",
+  "B1"
+]
+```
+
 ## Running locally
 
 After cloning the project just go to the project folder and run:
@@ -28,6 +72,9 @@ After cloning the project just go to the project folder and run:
 * `./routes.js` - Create the routes and instantiate its handlers
 * `./server.js` - Start the server
 
+## The algorithm to find the knight moves
+
+The first step of the algorithm is to validate whether the cell position coming from the request is a valid one. Then it gets the moves of the first turn running the `getPossibleMovesByCell` method, and finally, it runs the same for each result of the first turn calling `getPossibleMovesByCells`. The `getPossibleMovesByCell` method consist in getting all valid moves in all possibles directions(`upRight`, `upLeft`, `rightUp`, `rightDown`, `downRight`, `downLeft`, `leftUp`, `leftDown`).
 
 ## Framework and library versions
 
