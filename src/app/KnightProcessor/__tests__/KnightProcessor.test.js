@@ -43,8 +43,8 @@ describe("KnightProcessor", () => {
     let knightProcessor = new KnightProcessor("C5");
     knightProcessor.getSecondTurnMoves();
     knightProcessor.saveHistory();
-
-
+    const histories = await History.findAll();
+    expect(histories.length).toBeGreaterThan(0);
   });
 
 });
