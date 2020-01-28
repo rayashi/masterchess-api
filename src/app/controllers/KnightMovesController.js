@@ -8,7 +8,7 @@ class KnightMovesController {
     let knightProcessor = new this.KnightProcessor(cell);
 
     try {  
-      knightProcessor.getSecondTurnMoves(cell);
+      knightProcessor.getSecondTurnMoves();
       knightProcessor.saveHistory();
     } catch(error) {
       res.status(400);

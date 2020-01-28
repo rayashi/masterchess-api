@@ -2,11 +2,11 @@ const BoardProcessor = require("../BoardProcessor/BoardProcessor");
 
 class KnightProcessor extends BoardProcessor {
 
-  getSecondTurnMoves(cell) {
-    if(!this.validateCell(cell)){
-      throw `Sorry, ${cell} is not a valid board position in Chess`
+  getSecondTurnMoves() {
+    if(!this.validateCell(this.cell)){
+      throw `Sorry, ${this.cell} is not a valid board position in Chess`
     }
-    const firstTurnMoves = this.getPossibleMovesByCell(cell);
+    const firstTurnMoves = this.getPossibleMovesByCell(this.cell);
     this.secondTurnMoves = this.getPossibleMovesByCells(firstTurnMoves, this.getPossibleMovesByCell.bind(this));
     return this.secondTurnMoves;
   }
