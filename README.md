@@ -3,9 +3,11 @@
 
 Masterchess API works as an engine to preview moves in the Chess game. The first version just gets all cells where the Knight can move in exactly 2 turns. The API was built using [node](https://nodejs.org).
 
-You can find the frontend web application [here](https://github.com/rayashi/masterchess).
+The frontend web application is up and running [here](https://masterchess-web.herokuapp.com)
 
-The API is up and running here: https://masterchess-api.herokuapp.com
+You can find the project of the frontend web application [here](https://github.com/rayashi/masterchess).
+
+This API live here: https://masterchess-api.herokuapp.com
 
 ## Endpoints
 
@@ -67,10 +69,10 @@ After cloning the project just go to the project folder and run:
 * `/src` - All application codes
 * `/src/BoardProcessor` - BoardProcessor is the base class for rules that apply in the Chess board, like cell validation, move forward and backward, etc.
 * `/src/KnightProcessor` - Is a class that inherit BoardProcessor, and it knows all about the Knight moves and rules
-* `/controllers` - Each controller is responsible for handle network requests
-* `./app.js` - Instantiate the [express](https://expressjs.com/) application with its middlewares
-* `./routes.js` - Create the routes and instantiate its handlers
-* `./server.js` - Start the server
+* `/src/controllers` - Each controller is responsible for handle network requests
+* `./src/app.js` - Instantiate the [express](https://expressjs.com/) application with its middlewares
+* `./src/routes.js` - Create the routes and instantiate its handlers
+* `./src/server.js` - Start the server
 
 ## The algorithm to find the knight moves
 
@@ -80,8 +82,8 @@ The first step of the algorithm is to validate whether the cell position coming 
 
 This project was tested using the following dependencies versions:
 
-* node = 13.7.0
-* jest = 25.1.0 and supertest = 25.1.0 and  - For testing
-* nodemon = 2.0.2 - To run local server
-* express = express - Webframework for Node.js
-* dotenv = 8.2.0 - Loads environment variables from a .env
+* `node` = 13.7.0
+* `jest` = 25.1.0 and supertest = 25.1.0 and  - For testing
+* `nodemon` = 2.0.2 - To run local server
+* `express` = express - Webframework for Node.js
+* `dotenv` = 4.17.1 - Loads environment variables from a .env
