@@ -57,7 +57,7 @@ Response:
 
 After cloning the project just go to the project folder and:
 
-Create a file `.env` file with the content `DB_DIALECT=sqlite`
+Create a file `.env` with the content `DB_DIALECT=sqlite`
 
 Run the command:
 
@@ -75,14 +75,14 @@ and
 
 * `/__tests__` - Integration tests
 * `/src` - All application codes
-* `/src/app/BoardProcessor` - BoardProcessor is the base class for rules that apply in the Chess board, like cell validation, move forward and backward, etc.
-* `/src/app/KnightProcessor` - Is a class that inherit BoardProcessor, and it knows all about the Knight moves and rules
-* `/src/app/HistoryProcessor` - Get all moves history from the PostgreSQL database
+* `/src/app/BoardProcessor` - BoardProcessor is the base class for rules that apply in the Chess board, like cell validation, moving forwards and backwards, etc.
+* `/src/app/KnightProcessor` - Is a class that inherits BoardProcessor, and it knows all about the Knight moves and rules
+* `/src/app/HistoryProcessor` - Gets all moves history from the PostgreSQL database
 * `/src/app/models` - Models to interact with the database
 * `/src/controllers` - Each controller is responsible for handling the network requests
 * `./src/app.js` - Instantiate the [express](https://expressjs.com/) application with its middlewares
-* `./src/routes.js` - Create the routes and instantiate its handlers
-* `./src/server.js` - Start the server
+* `./src/routes.js` - Creates the routes and instantiate its handlers
+* `./src/server.js` - Starts the server
 
 ## The algorithm to find the knight moves
 
