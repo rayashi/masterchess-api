@@ -7,7 +7,7 @@ The frontend web application is up and running [here](https://masterchess-web.he
 
 You can find the project of the frontend web application [here](https://github.com/rayashi/masterchess).
 
-This API live here: https://masterchess-api.herokuapp.com
+This API is live here: https://masterchess-api.herokuapp.com
 
 ## Endpoints
 
@@ -51,6 +51,8 @@ Response:
 ]
 ```
 
+* `/history` - Get all moves history
+
 ## Running locally
 
 After cloning the project just go to the project folder and:
@@ -75,16 +77,16 @@ and
 * `/src` - All application codes
 * `/src/app/BoardProcessor` - BoardProcessor is the base class for rules that apply in the Chess board, like cell validation, move forward and backward, etc.
 * `/src/app/KnightProcessor` - Is a class that inherit BoardProcessor, and it knows all about the Knight moves and rules
-* `/src/app/HistoryProcessor` - Get all history moves from the PostgreSQL database
-* `/src/app/models` - Models to interact with database
-* `/src/controllers` - Each controller is responsible for handle network requests
+* `/src/app/HistoryProcessor` - Get all moves history from the PostgreSQL database
+* `/src/app/models` - Models to interact with the database
+* `/src/controllers` - Each controller is responsible for handling the network requests
 * `./src/app.js` - Instantiate the [express](https://expressjs.com/) application with its middlewares
 * `./src/routes.js` - Create the routes and instantiate its handlers
 * `./src/server.js` - Start the server
 
 ## The algorithm to find the knight moves
 
-The first step of the algorithm is to validate whether the cell position coming from the request is a valid one. Then it gets the moves of the first turn running the `getPossibleMovesByCell` method, and finally, it runs the same for each result of the first turn calling `getPossibleMovesByCells`. The `getPossibleMovesByCell` method consist in getting all valid moves in all possibles directions(`upRight`, `upLeft`, `rightUp`, `rightDown`, `downRight`, `downLeft`, `leftUp`, `leftDown`).
+The first step of the algorithm is to validate whether the cell position coming from the request is a valid one. Then it gets the moves of the first turn running the `getPossibleMovesByCell` method, and finally, it runs the same for each result of the first turn calling `getPossibleMovesByCells`. The `getPossibleMovesByCell` method consists of getting all valid moves in all possibles directions(`upRight`, `upLeft`, `rightUp`, `rightDown`, `downRight`, `downLeft`, `leftUp`, `leftDown`).
 
 ## Framework and library versions
 
