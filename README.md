@@ -67,8 +67,10 @@ After cloning the project just go to the project folder and run:
 
 * `/__tests__` - Integration tests
 * `/src` - All application codes
-* `/src/BoardProcessor` - BoardProcessor is the base class for rules that apply in the Chess board, like cell validation, move forward and backward, etc.
-* `/src/KnightProcessor` - Is a class that inherit BoardProcessor, and it knows all about the Knight moves and rules
+* `/src/app/BoardProcessor` - BoardProcessor is the base class for rules that apply in the Chess board, like cell validation, move forward and backward, etc.
+* `/src/app/KnightProcessor` - Is a class that inherit BoardProcessor, and it knows all about the Knight moves and rules
+* `/src/app/HistoryProcessor` - Get all history moves from the PostgreSQL database
+* `/src/app/models` - Models to interact with database
 * `/src/controllers` - Each controller is responsible for handle network requests
 * `./src/app.js` - Instantiate the [express](https://expressjs.com/) application with its middlewares
 * `./src/routes.js` - Create the routes and instantiate its handlers
@@ -87,3 +89,7 @@ This project was tested using the following dependencies versions:
 * `nodemon` = 2.0.2 - To run local server
 * `express` = express - Webframework for Node.js
 * `dotenv` = 4.17.1 - Loads environment variables from a .env
+* `sequelize` = 5.21.3" - ORM
+* `pg` = 7.17.1 - PostgeSQL connector
+* `sequelize-cli` = 5.5.1 - The Sequelize Command Line Interface - migration
+
