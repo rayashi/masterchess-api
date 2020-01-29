@@ -53,9 +53,15 @@ Response:
 
 ## Running locally
 
-After cloning the project just go to the project folder and run:
+After cloning the project just go to the project folder and:
+
+Create a file `.env` file with the content `DB_DIALECT=sqlite`
+
+Run the command:
 
 ```yarn``` or ```npm install```
+
+and
 
 ```yarn dev``` or ```npm run dev```
 
