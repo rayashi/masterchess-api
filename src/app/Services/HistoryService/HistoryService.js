@@ -1,7 +1,7 @@
 
-const { History } = require("../models");
+const { History } = require("../../Models");
 
-class HistoryProcessor {
+class HistoryService {
   
   async getAllHistory() {
     let allHistories = await History.findAll({
@@ -13,4 +13,4 @@ class HistoryProcessor {
 
 }
 
-module.exports = new HistoryProcessor();
+module.exports = new HistoryService();

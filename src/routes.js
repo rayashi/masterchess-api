@@ -1,10 +1,10 @@
 const routes = require("express").Router();
 
-const knightProcessor = require("./app/KnightProcessor/KnightProcessor");
-const KnightMovesController = require("./app/controllers/KnightMovesController");
-const getAllHistoryController = require("./app/controllers/GetAllHistoryController");
+const knightService = require("./app/Services/KnightService/KnightService");
+const KnightMovesController = require("./app/Controllers/KnightMovesController");
+const getAllHistoryController = require("./app/Controllers/GetAllHistoryController");
 
-const knightMovesController = new KnightMovesController(knightProcessor);
+const knightMovesController = new KnightMovesController(knightService);
 
 routes.post("/knight-moves", (...args) => knightMovesController.handleRequest(...args) );
 routes.get("/history", (...args) => getAllHistoryController.handleRequest(...args) );
