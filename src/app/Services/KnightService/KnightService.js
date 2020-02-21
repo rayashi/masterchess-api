@@ -1,6 +1,6 @@
-const BoardProcessor = require("../BoardProcessor/BoardProcessor");
+const BoardService = require("../BoardService/BoardService");
 
-class KnightProcessor extends BoardProcessor {
+class KnightService extends BoardService {
 
   getSecondTurnMoves() {
     if(!this.validateCell(this.cell)){
@@ -43,4 +43,4 @@ class KnightProcessor extends BoardProcessor {
 
 }
 
-module.exports = KnightProcessor;
+module.exports = KnightService;

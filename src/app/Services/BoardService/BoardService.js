@@ -1,6 +1,6 @@
-const { History } = require("../models");
+const { History } = require("../../Models");
 
-class BoardProcessor {
+class BoardService {
   
   constructor(cell){
     this.cell = cell;
@@ -40,4 +40,4 @@ class BoardProcessor {
 
 }
 
-module.exports = BoardProcessor;
+module.exports = BoardService;

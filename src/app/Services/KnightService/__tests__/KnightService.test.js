@@ -1,18 +1,18 @@
-const KnightProcessor = require("../KnightProcessor");
-const { History } = require("../../models");
+const KnightService = require("../KnightService");
+const { History } = require("../../../Models");
 
-describe("KnightProcessor", () => {
+describe("Knight", () => {
 
   it("should throw exception for invalid cell", async () => { 
-    let knightProcessor = new KnightProcessor("H10");
-    expect(() => knightProcessor.getPossibleMovesByCells()).toThrow();
-    expect(() => knightProcessor.getPossibleMovesByCell()).toThrow();
+    let knightService = new KnightService("H10");
+    expect(() => knightService.getPossibleMovesByCells()).toThrow();
+    expect(() => knightService.getPossibleMovesByCell()).toThrow();
   });
 
   
   it("should get all the possibilities moves of the second turn", async () => {   
-    let knightProcessor = new KnightProcessor("C4");
-    let possibilities = knightProcessor.getSecondTurnMoves();
+    let knightService = new KnightService("C4");
+    let possibilities = knightService.getSecondTurnMoves();
     expect(possibilities).toContain("E8");
     expect(possibilities).toContain("C8");
     expect(possibilities).toContain("F7");
@@ -40,9 +40,9 @@ describe("KnightProcessor", () => {
   });
 
   it("should throw exception for invalid cell", async () => { 
-    let knightProcessor = new KnightProcessor("C5");
-    knightProcessor.getSecondTurnMoves();
-    knightProcessor.saveHistory();
+    let knightService = new KnightService("C5");
+    knightService.getSecondTurnMoves();
+    knightService.saveHistory();
     const histories = await History.findAll();
     expect(histories.length).toBeGreaterThan(0);
   });
